@@ -52,8 +52,9 @@ export function lazy(
 
   finalComp.preload = async () => {
     if (!preloaded) {
-      await importer()
+      preloaded = importer()
     }
+    return preloaded
   }
 
   return finalComp
